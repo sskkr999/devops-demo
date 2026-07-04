@@ -26,6 +26,8 @@
         <input type="email" name="email" required>
         <label>Phone</label>
         <input type="text" name="phone" required>
+        <label>Address</label>
+        <input type="text" name="address" required> 
         <button type="submit">Save</button>
     </form>
 
@@ -36,12 +38,14 @@
             <th>Name</th>
             <th>Email</th>
             <th>Phone</th>
+            <th>Address</th>
         </tr>
         <tr th:each="p : ${people}">
             <td th:text="${p.id}"></td>
             <td th:text="${p.name}"></td>
             <td th:text="${p.email}"></td>
             <td th:text="${p.phone}"></td>
+            <td th:text="${p.address}"></td>
         </tr>
     </table>
 </div>

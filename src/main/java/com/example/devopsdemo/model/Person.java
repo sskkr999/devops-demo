@@ -17,14 +17,16 @@ public class Person {
     private String name;
     private String email;
     private String phone;
+    private String address;
 
     public Person() {
     }
 
-    public Person(String name, String email, String phone) {
+    public Person(String name, String email, String phone, String address) {
         this.name = name;
         this.email = email;
         this.phone = phone;
+        this.address = address;
     }
 
     public Long getId() {
@@ -57,5 +59,12 @@ public class Person {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

@@ -32,11 +32,12 @@ public class PersonController {
     public String savePerson(@RequestParam String name,
                               @RequestParam String email,
                               @RequestParam String phone,
+                              @RequestParam String address,
                               HttpSession session) {
         if (session.getAttribute("loggedIn") == null) {
             return "redirect:/";
         }
-        personRepository.save(new Person(name, email, phone));
+        personRepository.save(new Person(name, email, phone, address));
         return "redirect:/form";
     }
 }
