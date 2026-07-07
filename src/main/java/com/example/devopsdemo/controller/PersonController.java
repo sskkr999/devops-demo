@@ -33,11 +33,12 @@ public class PersonController {
                               @RequestParam String email,
                               @RequestParam String phone,
                               @RequestParam String address,
+                              @RequestParam String companyName,
                               HttpSession session) {
         if (session.getAttribute("loggedIn") == null) {
             return "redirect:/";
         }
-        personRepository.save(new Person(name, email, phone, address));
+        personRepository.save(new Person(name, email, phone, address,companyName));
         return "redirect:/form";
     }
 }
