@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deployment
+  namespace: uat
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devops-demo
+      env: uat
+  template:
+    metadata:
+      labels:
+        app: devops-demo
+        env: uat
+    spec:
+      containers:
+        - name: devops-demo-app
+          image: 519818056492.dkr.ecr.us-east-1.amazonaws.com/devops-demo-app:latest
+          imagePullPolicy: IfNotPresent
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "100m"
+            limits:
+              memory: "400Mi"
+              cpu: "300m"
+          env:
+            - name: DB_HOST
+              value: "mysql-service.uat.svc.cluster.local"
+            - name: DB_USER
+              value: "appuser"
+            - name: DB_PASS
+              value: "apppassword"
+          ports:
+            - containerPort: 8080

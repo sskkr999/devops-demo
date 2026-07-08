@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deployment
+  namespace: prod
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: devops-demo
+      env: prod
+  template:
+    metadata:
+      labels:
+        app: devops-demo
+        env: prod
+    spec:
+      containers:
+        - name: devops-demo-app
+          image: 519818056492.dkr.ecr.us-east-1.amazonaws.com/devops-demo-app:latest
+          imagePullPolicy: IfNotPresent
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "100m"
+            limits:
+              memory: "400Mi"
+              cpu: "300m"
+          env:
+            - name: DB_HOST
+              value: "172.17.0.1"
+            - name: DB_NAME
+              value: "devopsdb_prod"
+            - name: DB_USER
+              value: "appuser"
+            - name: DB_PASS
+              value: "apppassword"
+          ports:
+            - containerPort: 8080
+            
