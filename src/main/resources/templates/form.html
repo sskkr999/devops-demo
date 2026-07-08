@@ -30,6 +30,8 @@
         <input type="text" name="address" required> 
         <label>Company Name</label>
         <input type="text" name="companyName" required>
+        <label>Department</label>
+        <input type="text" name="department" required>
         <button type="submit">Save</button>
         
     </form>
@@ -43,6 +45,8 @@
             <th>Phone</th>
             <th>Address</th>
             <th>Company Name</th>
+            <th>Department</th>
+        
         </tr>
         <tr th:each="p : ${people}">
             <td th:text="${p.id}"></td>
@@ -51,6 +55,7 @@
             <td th:text="${p.phone}"></td>
             <td th:text="${p.address}"></td>
             <td th:text="${p.companyName}"></td>
+            <td th:text="${p.department}"></td>
         </tr>
     </table>
 </div>

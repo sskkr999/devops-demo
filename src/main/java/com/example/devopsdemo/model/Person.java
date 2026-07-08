@@ -19,16 +19,18 @@ public class Person {
     private String phone;
     private String address;
     private String companyName;
+    private String department;
 
     public Person() {
     }
 
-    public Person(String name, String email, String phone, String address, String companyName) {
+    public Person(String name, String email, String phone, String address, String companyName, String department) {
         this.name = name;
         this.email = email;
         this.phone = phone;
         this.address = address;
         this.companyName = companyName;
+        this.department = department;
     }
 
     public Long getId() {
@@ -74,5 +76,11 @@ public class Person {
     }
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
+    }
+    public String getDepartment() {
+        return department;
+    }
+    public void setDepartment(String department) {
+        this.department = department;
     }
 }

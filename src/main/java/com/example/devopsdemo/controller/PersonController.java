@@ -34,11 +34,12 @@ public class PersonController {
                               @RequestParam String phone,
                               @RequestParam String address,
                               @RequestParam String companyName,
+                              @RequestParam String department,
                               HttpSession session) {
         if (session.getAttribute("loggedIn") == null) {
             return "redirect:/";
         }
-        personRepository.save(new Person(name, email, phone, address,companyName));
+        personRepository.save(new Person(name, email, phone, address,companyName, department));
         return "redirect:/form";
     }
 }
