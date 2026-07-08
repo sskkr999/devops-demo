@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: devops-demo-app
-          image: 519818056492.dkr.ecr.us-east-1.amazonaws.com/devops-demo-app:latest
+          image: 519818056492.dkr.ecr.us-east-1.amazonaws.com/devops-demo-app:17def019deb9bd66e7421222652e59b6cd977d1d
           imagePullPolicy: IfNotPresent
           resources:
             requests:
