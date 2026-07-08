@@ -52,4 +52,4 @@ jobs:
             sudo k3s ctr images pull --user AWS:$(cat /tmp/ecr-token.txt) 519818056492.dkr.ecr.us-east-1.amazonaws.com/devops-demo-app:${{ github.sha }}
             kubectl set image deployment/app-deployment devops-demo-app=519818056492.dkr.ecr.us-east-1.amazonaws.com/devops-demo-app:${{ github.sha }} -n uat
             kubectl rollout status deployment/app-deployment -n uat
-            rm /tmp/ecr-token.txt
+            rm -f /tmp/ecr-token.txt
