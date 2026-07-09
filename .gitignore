@@ -6,3 +6,7 @@ target/
 .vscode/
 .DS_Store
 *.tar
+terraform/.terraform/
+terraform/*.tfstate
+terraform/*.tfstate.backup
+terraform/.terraform.lock.hcl
