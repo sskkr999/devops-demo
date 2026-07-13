@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Person Details</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f6f8; margin: 0; padding: 30px; }
+        .container { max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        h2 { margin-top: 0; }
+        .details { margin-top: 20px; }
+        .details dt { font-weight: bold; }
+        .details dd { margin: 0 0 10px 0; }
+        a { color: #2d6cdf; text-decoration: none; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <a th:href="@{/form}">Back to list</a>
+    <h2>Person Details</h2>
+    <dl class="details">
+        <dt>ID</dt>
+        <dd th:text="${person.id}"></dd>
+
+        <dt>Name</dt>
+        <dd th:text="${person.name}"></dd>
+
+        <dt>Email</dt>
+        <dd th:text="${person.email}"></dd>
+
+        <dt>Phone</dt>
+        <dd th:text="${person.phone}"></dd>
+
+        <dt>Address</dt>
+        <dd th:text="${person.address}"></dd>
+
+        <dt>Company Name</dt>
+        <dd th:text="${person.companyName}"></dd>
+
+        <dt>Department</dt>
+        <dd th:text="${person.department}"></dd>
+    </dl>
+</div>
+</body>
+</html>

@@ -46,10 +46,9 @@
             <th>Address</th>
             <th>Company Name</th>
             <th>Department</th>
-        
         </tr>
         <tr th:each="p : ${people}">
-            <td th:text="${p.id}"></td>
+            <td><a th:href="@{/person/{id}(id=${p.id})}" th:text="${p.id}"></a></td>
             <td th:text="${p.name}"></td>
             <td th:text="${p.email}"></td>
             <td th:text="${p.phone}"></td>
