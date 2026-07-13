@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -26,6 +27,19 @@ public class PersonController {
         List<Person> people = personRepository.findAll();
         model.addAttribute("people", people);
         return "form"; // renders templates/form.html
+    }
+
+    @GetMapping("/person/{id}")
+    public String personDetails(@PathVariable Long id, HttpSession session, Model model) {
+        if (session.getAttribute("loggedIn") == null) {
+            return "redirect:/";
+        }
+        Person person = personRepository.findById(id).orElse(null);
+        if (person == null) {
+            return "redirect:/form";
+        }
+        model.addAttribute("person", person);
+        return "details";
     }
 
     @PostMapping("/save")
