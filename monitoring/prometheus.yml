@@ -5,8 +5,13 @@ scrape_configs:
   - job_name: 'prometheus'
     static_configs:
       - targets: ['localhost:9090']
-  
-  - job_name: 'devops-demo-app'
+
+  - job_name: 'devops-demo-uat'
     metrics_path: '/actuator/prometheus'
     static_configs:
-      - targets: ['32.199.96.184:30082']  # Replace with the actual NodePort of your application service
+      - targets: ['32.199.96.184:30081']
+
+  - job_name: 'devops-demo-prod'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['32.199.96.184:30082']
