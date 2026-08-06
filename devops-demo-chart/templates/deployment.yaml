@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deployment
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      app: devops-demo
+      env: {{ .Values.namespace }}
+  template:
+    metadata:
+      labels:
+        app: devops-demo
+        env: {{ .Values.namespace }}
+    spec:
+      containers:
+        - name: devops-demo-app
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: IfNotPresent
+          resources:
+            requests:
+              memory: {{ .Values.resources.requests.memory }}
+              cpu: {{ .Values.resources.requests.cpu }}
+            limits:
+              memory: {{ .Values.resources.limits.memory }}
+              cpu: {{ .Values.resources.limits.cpu }}
+          env:
+            - name: DB_HOST
+              value: {{ .Values.dbHost | quote }}
+            - name: DB_NAME
+              value: {{ .Values.dbName | quote }}
+            - name: DB_USER
+              value: {{ .Values.dbUser | quote }}
+            - name: DB_PASS
+              value: {{ .Values.dbPass | quote }}
+          ports:
+            - containerPort: 8080
