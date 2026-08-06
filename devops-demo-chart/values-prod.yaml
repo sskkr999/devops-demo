@@ -1,0 +1,4 @@
+namespace: prod
+replicas: 2
+nodePort: 30082
+dbName: "devopsdb_prod"

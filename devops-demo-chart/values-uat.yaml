@@ -1,0 +1,4 @@
+namespace: uat
+replicas: 1
+nodePort: 30081
+dbName: "devopsdb_uat"

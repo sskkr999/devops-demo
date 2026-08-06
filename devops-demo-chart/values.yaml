@@ -1,0 +1,20 @@
+namespace: uat
+replicas: 1
+
+image:
+  repository: 519818056492.dkr.ecr.us-east-1.amazonaws.com/devops-demo-app
+  tag: latest
+
+resources:
+  requests:
+    memory: "256Mi"
+    cpu: "100m"
+  limits:
+    memory: "400Mi"
+    cpu: "300m"
+
+dbHost: "172.17.0.1"
+dbName: "devopsdb_uat"
+dbUser: "appuser"
+dbPass: "apppassword"
+nodePort: 30081
